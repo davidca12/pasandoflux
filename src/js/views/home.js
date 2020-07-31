@@ -8,9 +8,16 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<>
-			<h1>Come</h1>
 			{store.characters.map((e, index) => {
-				return <Card key={index} name={e.height} height={e.name} />;
+				return (
+					<Card
+						key={index}
+						title={e.name}
+						gender={e.gender}
+						hairColor={e.hair_color}
+						eyeColor={e.eye_color}
+					/>
+				);
 			})}
 		</>
 	);
