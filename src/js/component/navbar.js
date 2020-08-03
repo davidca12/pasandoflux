@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import star from "../../img/star.png";
 
+import { Context } from "../store/appContext";
+
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
@@ -21,7 +25,7 @@ export const Navbar = () => {
 							data-toggle="dropdown"
 							aria-haspopup="true"
 							aria-expanded="false">
-							Dropdown link
+							{store.singleCharacter.name}
 						</a>
 
 						<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">

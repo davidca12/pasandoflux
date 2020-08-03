@@ -23,7 +23,10 @@ export const Card = singleCharacter => {
 								Learn more
 							</button>
 						</Link>
-						<button type="button" className="btn btn-outline-warning">
+						<button
+							type="button"
+							className="btn btn-outline-warning"
+							onClick={() => actions.seleccion(singleCharacter.character)}>
 							<i className="fa fa-heart" aria-hidden="true" />
 						</button>
 					</div>
