@@ -11,11 +11,14 @@ export const Home = () => {
 			{store.characters.map((e, index) => {
 				return (
 					<Card
-						key={index}
+						/*key={index}
+						id={index}
 						title={e.name}
 						gender={e.gender}
 						hairColor={e.hair_color}
-						eyeColor={e.eye_color}
+                        eyeColor={e.eye_color}*/
+						key={index}
+						character={e}
 					/>
 				);
 			})}
