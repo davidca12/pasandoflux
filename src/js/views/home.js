@@ -18,6 +18,7 @@ export const Home = () => {
 						hairColor={e.hair_color}
                         eyeColor={e.eye_color}*/
 						key={index}
+						id={index}
 						character={e}
 					/>
 				);

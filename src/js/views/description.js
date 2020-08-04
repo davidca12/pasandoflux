@@ -1,10 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+
 //import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
 export const Description = () => {
 	const { store, actions } = useContext(Context); //funciona como .provider .consumer !
 	console.log(store.singleCharacter);
+
+	const { id } = useParams(); //tienee que ser el mismo nombre que esta en layaout
+	console.log(id);
+
+	/*const [pueblo, setPueblo] = React.useState([]);
+
+	React.useEffect(() => {
+		obtenerDatos();
+	}, []);
+
+	const obtenerDatos = async () => {
+		const data = await fetch(`https://swapi.dev/api/people/${id}`);
+		const users = await data.json();
+		setPueblo(users);
+	};*/
 
 	return (
 		<>

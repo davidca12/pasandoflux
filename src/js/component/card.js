@@ -15,7 +15,7 @@ export const Card = singleCharacter => {
 						<p className="card-text">{singleCharacter.character.gender}</p>
 						<p className="card-text">{singleCharacter.character.hair_color}</p>
 						<p className="card-text">{singleCharacter.character.eye_color}</p>
-						<Link to={{ pathname: "/description" }}>
+						<Link to={{ pathname: `/description/${singleCharacter.id + 1}` }}>
 							<button
 								type="button"
 								className="btn btn-outline-primary"
