@@ -8,7 +8,7 @@ export const Card = singleCharacter => {
 	return (
 		<>
 			<div className="card-group">
-				<div className="card">
+				<div className="card-sm-3">
 					<img className="card-img-top" src="..." alt="Card image cap" />
 					<div className="card-body">
 						<h5 className="card-title">{singleCharacter.character.name}</h5>
@@ -26,7 +26,7 @@ export const Card = singleCharacter => {
 						<button
 							type="button"
 							className="btn btn-outline-warning"
-							onClick={() => actions.updateFavoritos(singleCharacter.character.name)}>
+							onClick={() => actions.favoritos(singleCharacter.character.name)}>
 							<i className="fa fa-heart" aria-hidden="true" />
 						</button>
 					</div>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import star from "../../img/star.png";
+import { Dropdown } from "react-bootstrap";
 
 import { Context } from "../store/appContext";
 import { Single } from "../views/single";
@@ -15,22 +16,42 @@ export const Navbar = () => {
 					<img src={star} height="50px" />
 				</span>
 			</Link>
-			<div classNameName="ml-auto">
-				{/*<Link to="/demo">*/}
-				<div className="dropdown">
-					<a
-						className="btn btn-primary dropdown-toggle"
-						href="#"
-						role="button"
-						id="dropdownMenuLink"
-						data-toggle="dropdown"
-						aria-haspopup="true"
-						aria-expanded="false">
-						{store.update}
-					</a>
-				</div>
-				{/*</Link>*/}
-			</div>
+
+			<Dropdown>
+				<Dropdown.Toggle variant="success" id="dropdown-basic">
+					Dropdown Button
+				</Dropdown.Toggle>
+
+				<Dropdown.Menu>
+					{store.favoritos.map((item, index) => {
+						console.log(item);
+						return (
+							<Dropdown.Item href="#/action-1" key={index}>
+								{item}
+								<button
+									type="button"
+									className="close"
+									aria-label="Close"
+									onClick={() => actions.eliminar(item)}>
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</Dropdown.Item>
+						);
+					})}
+				</Dropdown.Menu>
+			</Dropdown>
 		</nav>
 	);
 };
+
+/*<li className="list-group-item" key={index}>
+							{item}
+
+							<button
+								type="button"
+								className="close"
+								aria-label="Close"
+								onClick={() => actions.eliminar(item)}>
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</li>*/

@@ -8,21 +8,23 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<>
-			{store.characters.map((e, index) => {
-				return (
-					<Card
-						/*key={index}
-						id={index}
-						title={e.name}
-						gender={e.gender}
-						hairColor={e.hair_color}
-                        eyeColor={e.eye_color}*/
-						key={index}
-						id={index}
-						character={e}
-					/>
-				);
-			})}
+			<div className="list-group list-group-horizontal">
+				{store.characters.map((e, index) => {
+					return (
+						<Card
+							/*key={index}
+                            id={index}
+                            title={e.name}
+                            gender={e.gender}
+                            hairColor={e.hair_color}
+                            eyeColor={e.eye_color}*/
+							key={index}
+							id={index}
+							character={e}
+						/>
+					);
+				})}
+			</div>
 		</>
 	);
 };

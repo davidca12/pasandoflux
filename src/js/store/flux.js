@@ -1,10 +1,11 @@
+import { array } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			characters: [], //array
 			singleCharacter: {}, //objeto
-			update: [],
-			favoritos: ["ñue"]
+			favoritos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -52,14 +53,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ update: target });
 				//console.log(store.update);
 			},
-			favoritos: () => {
+			eliminar: name => {
+				const store = getStore();
+				const exist = store.favoritos.filter(item => item != name);
+				console.log(exist);
+				setStore({ favoritos: exist });
+			},
+			favoritos: name => {
 				/*const store = getStore();
 
 				let array = [];
 				let nw = array.push(store.update);
 				console.log(array);*/
 
-				setStore(favoritos => favoritos.concat(update)); //array siempre !
+				//setStore(favoritos => favoritos.concat(update)); //array siempre !
+
+				const store = getStore();
+				const exist = store.favoritos.filter(fav => fav === name);
+				console.log(exist.length);
+
+				if (exist.length === 0) {
+					return setStore({ favoritos: [...store.favoritos, name] });
+				} else {
+					return setStore({ favoritos: store.favoritos });
+				}
+
+				console.log(store.favoritos);
 			}
 		}
 	};
