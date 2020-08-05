@@ -16,32 +16,20 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div classNameName="ml-auto">
-				<Link to="/demo">
-					<div className="dropdown">
-						<a
-							className="btn btn-primary dropdown-toggle"
-							href="#"
-							role="button"
-							id="dropdownMenuLink"
-							data-toggle="dropdown"
-							aria-haspopup="true"
-							aria-expanded="false">
-							{favoritos.name}
-						</a>
-
-						<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<a className="dropdown-item" href="#">
-								Action
-							</a>
-							<a className="dropdown-item" href="#">
-								Another action
-							</a>
-							<a className="dropdown-item" href="#">
-								Something else here
-							</a>
-						</div>
-					</div>
-				</Link>
+				{/*<Link to="/demo">*/}
+				<div className="dropdown">
+					<a
+						className="btn btn-primary dropdown-toggle"
+						href="#"
+						role="button"
+						id="dropdownMenuLink"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false">
+						{store.update}
+					</a>
+				</div>
+				{/*</Link>*/}
 			</div>
 		</nav>
 	);

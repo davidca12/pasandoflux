@@ -11,8 +11,6 @@ export const Description = () => {
 
 	var caracter = JSON.parse(localStorage.getItem("singleCharacter"));
 
-	console.log(caracter.name);
-
 	/*useEffect(
 		() => {
 			actions.obtenerDatos(id);
@@ -59,11 +57,11 @@ export const Description = () => {
 				<tbody>
 					<tr>
 						<th scope="row">{caracter.name}</th>
-						<td>{store.singleCharacter.birth_year}</td>
-						<td>{store.singleCharacter.gender}</td>
-						<td>{store.singleCharacter.height}</td>
-						<td>{store.singleCharacter.skin_color}</td>
-						<td>{store.singleCharacter.eye_color}</td>
+						<td>{caracter.birth_year}</td>
+						<td>{caracter.gender}</td>
+						<td>{caracter.height}</td>
+						<td>{caracter.skin_color}</td>
+						<td>{caracter.eye_color}</td>
 					</tr>
 
 					{/*<tr>

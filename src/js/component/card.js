@@ -26,7 +26,7 @@ export const Card = singleCharacter => {
 						<button
 							type="button"
 							className="btn btn-outline-warning"
-							onClick={() => actions.favoritos(singleCharacter.character)}>
+							onClick={() => actions.updateFavoritos(singleCharacter.character.name)}>
 							<i className="fa fa-heart" aria-hidden="true" />
 						</button>
 					</div>

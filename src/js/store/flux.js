@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [], //array
 			singleCharacter: {}, //objeto
-			favoritos: []
+			update: [],
+			favoritos: ["ñue"]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -44,10 +45,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					  })
 					: "";
             }*/,
-			favoritos: singleCharacter => {
+			updateFavoritos: target => {
+				// Update query onKeyPress of input box
 				const store = getStore();
 
-				setStore(favoritos => favoritos.concat(singleCharacter));
+				setStore({ update: target });
+				//console.log(store.update);
+			},
+			favoritos: () => {
+				/*const store = getStore();
+
+				let array = [];
+				let nw = array.push(store.update);
+				console.log(array);*/
+
+				setStore(favoritos => favoritos.concat(update)); //array siempre !
 			}
 		}
 	};
