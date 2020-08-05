@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import star from "../../img/star.png";
 
 import { Context } from "../store/appContext";
+import { Single } from "../views/single";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -25,7 +26,7 @@ export const Navbar = () => {
 							data-toggle="dropdown"
 							aria-haspopup="true"
 							aria-expanded="false">
-							{store.singleCharacter.name}
+							{favoritos.name}
 						</a>
 
 						<div className="dropdown-menu" aria-labelledby="dropdownMenuLink">

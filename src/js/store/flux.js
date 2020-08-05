@@ -2,37 +2,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			characters: [], //array
-			singleCharacter: {} //objeto
+			singleCharacter: {}, //objeto
+			favoritos: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+
 			loadSomeData: async () => {
-				let res = await fetch("https://swapi.dev/api/people/");
-				let data = await res.json();
+				let data = await fetch("https://swapi.dev/api/people/");
+				let respons = await data.json();
 
 				setStore({
-					characters: data.results //para coger solo los resultados
+					characters: respons.results //para coger solo los resultados
 				});
 			},
-			changeColor: (index, color) => {
-				//get the store
+
+			/*obtenerDatos: async id => {
+				console.log("id", id);
+				console.log(`https://swapi.dev/api/people/${id}`);
+				console.log(fetch(`https://swapi.dev/api/people/${id}`));
+
+				const data = await fetch(`https://swapi.dev/api/people/${id}`);
+
+				const users = await data.json();
+
+				setStore({ singleCharacter: users.results });
+			},*/
+
+			seleccion: singleCharacter => {
 				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				//setStore({ singleCharacter: singleCharacter });
+				localStorage.setItem("singleCharacter", JSON.stringify(singleCharacter)); //tiene que ser string los dos
+			} /*
+			reloadPage: id => {
+				const store = getStore(); // para poder utilizar store
+				console.log(id, store.characters[id]);
+				store.characters
+					? setStore({
+							singleCharacter: store.characters[id] //para coger solo los resultados
+					  })
+					: "";
+            }*/,
+			favoritos: singleCharacter => {
+				const store = getStore();
 
-				//reset the global store
-				setStore({ demo: demo });
-			},
-			seleccion: singleCharacter => {
-				setStore({ singleCharacter: singleCharacter });
+				setStore(favoritos => favoritos.concat(singleCharacter));
 			}
 		}
 	};

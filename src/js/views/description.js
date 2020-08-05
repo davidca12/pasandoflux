@@ -6,10 +6,19 @@ import { useParams } from "react-router-dom";
 
 export const Description = () => {
 	const { store, actions } = useContext(Context); //funciona como .provider .consumer !
-	console.log(store.singleCharacter);
 
-	const { id } = useParams(); //tienee que ser el mismo nombre que esta en layaout
-	console.log(id);
+	//const { id } = useParams(); //tienee que ser el mismo nombre que esta en layaout
+
+	var caracter = JSON.parse(localStorage.getItem("singleCharacter"));
+
+	console.log(caracter.name);
+
+	/*useEffect(
+		() => {
+			actions.obtenerDatos(id);
+		},
+		[id]
+	); //los corchetes siginifican que se ejeuta cada vez que eso cambia lo de dentro, si estan vacios como compenntdimouyd
 
 	/*const [pueblo, setPueblo] = React.useState([]);
 
@@ -49,7 +58,7 @@ export const Description = () => {
 				</thead>
 				<tbody>
 					<tr>
-						<th scope="row">{store.singleCharacter.name}</th>
+						<th scope="row">{caracter.name}</th>
 						<td>{store.singleCharacter.birth_year}</td>
 						<td>{store.singleCharacter.gender}</td>
 						<td>{store.singleCharacter.height}</td>
